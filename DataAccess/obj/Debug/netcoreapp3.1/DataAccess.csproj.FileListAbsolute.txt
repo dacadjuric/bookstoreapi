@@ -1,0 +1,16 @@
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.deps.json
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.runtimeconfig.json
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.runtimeconfig.dev.json
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.AssemblyReference.cache
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfo.cs
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CopyComplete
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.genruntimeconfig.cache

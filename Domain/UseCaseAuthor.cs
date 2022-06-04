@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Domain
+{
+    public class UseCaseAuthor
+    {
+        public int Id { get; set; }
+        public int AuthorId { get; set; }
+        public int UseCaseId { get; set; }
+
+        public virtual Author Author { get; set; }
+    }
+}
