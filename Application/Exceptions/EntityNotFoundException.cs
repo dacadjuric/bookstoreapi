@@ -7,7 +7,7 @@ namespace Application.Exceptions
     public class EntityNotFoundException : Exception
     {
         public EntityNotFoundException(int id, Type type)
-            : base($"Entity of type {type.Name} with an id of {id} was not found.")
+            : base($"Entity of type {type.Name} with an id {id} was not found.")
         {
 
         }

@@ -1,7 +1,13 @@
 ﻿using Application;
+using Application.Commands;
+using Application.DataTransfer;
 using Application.Queries;
 using Application.Search;
+using Bogus;
+using DataAccess;
+using Domain;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,11 +22,13 @@ namespace BookstoreAPI.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
+        private readonly BookstoreContext _context;
         private readonly IApplicatioActor _actor;
         private readonly UseCaseExecutor _executor;
 
-        public BooksController(IApplicatioActor actor, UseCaseExecutor executor)
+        public BooksController(BookstoreContext context, IApplicatioActor actor, UseCaseExecutor executor)
         {
+            _context = context;
             _actor = actor;
             _executor = executor;
         }
@@ -30,7 +38,7 @@ namespace BookstoreAPI.Controllers
         [Authorize]
         public IActionResult Get(
             [FromQuery] BookSearch search,
-            [FromServices] IGetBookQuery query)
+            [FromServices] IGetBooksQuery query)
         {
             return Ok(_executor.ExecuteQuery(query, search));
             //return Ok("Uslo je.");
@@ -38,27 +46,38 @@ namespace BookstoreAPI.Controllers
 
         // GET api/<BooksController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id, [FromServices] IGetBookQuery query)
         {
-            return "value";
+            return Ok(_executor.ExecuteQuery(query, id));
         }
 
         // POST api/<BooksController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] BookDTO dto,
+            [FromServices] ICreateBookCommand command)
         {
+            _executor.ExecuteCommand(command, dto);
+
+            return StatusCode(StatusCodes.Status201Created);
         }
 
         // PUT api/<BooksController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] BookDTO dto, [FromServices] IUpdateBookCommand command)
         {
+            dto.Id = id;
+
+            _executor.ExecuteCommand(command, dto);
+
+            return NoContent();
         }
 
         // DELETE api/<BooksController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id, [FromServices] IDeleteBookCommand command)
         {
+            _executor.ExecuteCommand(command, id);
+            return NoContent();
         }
     }
 }

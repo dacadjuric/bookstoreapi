@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Application.Search
 {
-    public class BookSearch : SearchPage
+    public class BookSearch : PagedSearch
     {
         public string Name { get; set; }
     }

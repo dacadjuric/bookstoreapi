@@ -27,19 +27,19 @@ namespace BookstoreAPI.Core
 
         public string MakeToken(string username, string password)
         {
-            var user = _context.Authors.Include(u => u.UseCaseAuthors)
+            var author = _context.Authors.Include(u => u.UseCaseAuthors)
                 .FirstOrDefault(x => x.Username == username && x.Password == password);
 
-            if (user == null)
+            if (author == null)
             {
                 return null;
             }
 
             var actor = new JWTActor
             {
-                Id = user.Id,
-                UseCases = user.UseCaseAuthors.Select(x => x.UseCaseId),
-                Identity = user.Username
+                Id = author.Id,
+                UseCases = author.UseCaseAuthors.Select(x => x.UseCaseId),
+                Identity = author.Username
             };
 
             var claims = new List<Claim> 
@@ -63,7 +63,7 @@ namespace BookstoreAPI.Core
                 audience: "Any",
                 claims: claims,
                 notBefore: now,
-                expires: now.AddSeconds(60),
+                expires: now.AddSeconds(3000),
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);

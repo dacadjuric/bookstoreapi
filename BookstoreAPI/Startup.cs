@@ -46,60 +46,16 @@ namespace BookstoreAPI
 
             Configuration.Bind(apiSettings);
 
-            services.AddControllers();
             services.AddHttpContextAccessor();
-            services.AddJWT(apiSettings); 
-            services.AddTransient<BookstoreContext>();
-            services.AddTransient<AddBookValidator>();
-            services.AddTransient<UpdateBookValidator>();
-            services.AddTransient<IGetBookQuery, GetBookQuery>();
-            services.AddHttpContextAccessor();
-            
+            services.AddJWT(apiSettings);
+            services.AddAllQueries();
+            services.AddAllCommands();
+            services.AddDependencies();
+            services.AddValidators();
+            services.AddSwaggerToAPI();
+            services.AddTransient<IGetBookQuery, EfGetBookQuery>();
             services.AddApplicationActor();
-
-            services.AddTransient<IUseCaseLogger, DBUseCaseLog>();
-
-            services.AddTransient<IRegistrationCommand, RegistrationCommand>();
-            services.AddTransient<UseCaseExecutor>();
-            services.AddTransient<RegistrationValidator>();
-            services.AddAutoMapper(typeof(GetBookQuery).Assembly);
-            services.AddTransient<ISendEmail, SMTP>(x => new SMTP(apiSettings.EmailFrom, apiSettings.EmailPassword));
-
-            services.AddSwaggerGen(x =>
-            {
-                x.SwaggerDoc("V1", new OpenApiInfo { Title = "BookstoreAPI", Version = "V1" });
-                x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n 
-                      Enter 'Bearer' [space] and then your token in the text input below.
-                      \r\n\r\nExample: 'Bearer 123456abcdef'",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer"
-                });
-
-                x.AddSecurityRequirement(new OpenApiSecurityRequirement()
-                {
-                    {
-                        new OpenApiSecurityScheme
-                          {
-                            Reference = new OpenApiReference
-                              {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                              },
-                              Scheme = "oauth2",
-                              Name = "Bearer",
-                              In = ParameterLocation.Header,
-
-                            },
-                            new List<string>()
-                          }
-                    });
-            });
-
-            services.AddControllers();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

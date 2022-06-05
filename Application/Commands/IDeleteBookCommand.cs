@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Application.Commands
 {
-    interface IDeleteBookCommand: ICommand<int>
+    public interface IDeleteBookCommand: ICommand<int>
     {
     }
 }

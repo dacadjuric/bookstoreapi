@@ -32,6 +32,13 @@ namespace BookstoreAPI.Core
 
                 switch (ex)
                 {
+                    case BadRequestException _:
+                        statusCode = StatusCodes.Status400BadRequest;
+                        response = new
+                        {
+                            message = "Bad request"
+                        };
+                        break;
                     case UnauthorizedUseCaseException _:
                         statusCode = StatusCodes.Status403Forbidden;
                         response = new
@@ -48,8 +55,6 @@ namespace BookstoreAPI.Core
                         break;
                     case ValidationException validationException:
                         statusCode = StatusCodes.Status422UnprocessableEntity;
-
-
                         response = new
                         {
                             message = "Failed due to validation errors.",
@@ -60,6 +65,7 @@ namespace BookstoreAPI.Core
                             })
                         };
                         break;
+                    
                 }
 
                 httpContext.Response.StatusCode = statusCode;

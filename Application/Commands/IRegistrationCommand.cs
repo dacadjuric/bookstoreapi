@@ -5,8 +5,7 @@ using System.Text;
 
 namespace Application.Commands
 {
-    public interface IRegistrationCommand : ICommand<RegistrationDTO>
+    public interface IRegistrationCommand : ICommand<RegistrationDTO    >
     {
-
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Application.Commands
 {
-    interface ICreateBookCommand : ICommand<BookDTO>
+   public interface ICreateBookCommand : ICommand<BookDTO>
     {
     }
 }

@@ -1,7 +1,10 @@
 ﻿using Application.DataTransfer;
 using Application.Queries;
 using Application.Search;
+using AutoMapper;
 using DataAccess;
+using Domain;
+using Implementation.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +12,20 @@ using System.Text;
 
 namespace Implementation.Querys
 {
-    public class GetBookQuery : IGetBookQuery
+    public class EfGetBooksQuery : IGetBooksQuery
     {
         private readonly BookstoreContext _context;
+        private readonly IMapper _mapper;
 
-        public GetBookQuery(BookstoreContext context)
+        public EfGetBooksQuery(BookstoreContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
-        public int Id => 4;
 
-        public string Name => "Group search";
+        public int Id => 1;
+
+        public string Name => "Get books EF";
 
         public PaginationResponse<BookDTO> Execute(BookSearch search)
         {
@@ -28,24 +34,9 @@ namespace Implementation.Querys
             if (!string.IsNullOrEmpty(search.Name) || !string.IsNullOrWhiteSpace(search.Name))
             {
                 query = query.Where(x => x.Title.ToLower().Contains(search.Name.ToLower()));
-
             }
 
-            var skipCount = search.PerPage * (search.Page - 1);
-
-            var response = new PaginationResponse<BookDTO>
-            {
-                CurrentPage = search.Page,
-                ItemsPerPage = search.PerPage,
-                TotalCount = query.Count(),
-                Items = query.Skip(skipCount).Take(search.PerPage).Select(x => new BookDTO
-                {
-                    Id = x.Id,
-                    Title = x.Title
-                }).ToList()
-            };
-
-            return response;
+            return query.Paged<BookDTO, Book>(search, _mapper);
         }
     }
 }

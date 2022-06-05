@@ -75,3 +75,6 @@ C:\Users\Danijela Djuric\source\repos\BookstoreAPI\BookstoreAPI\bin\Debug\netcor
 C:\Users\Danijela Djuric\source\repos\BookstoreAPI\BookstoreAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Danijela Djuric\source\repos\BookstoreAPI\BookstoreAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Danijela Djuric\source\repos\BookstoreAPI\BookstoreAPI\obj\Debug\netcoreapp3.1\BookstoreAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\BookstoreAPI\bin\Debug\netcoreapp3.1\Bogus.dll
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\BookstoreAPI\bin\Debug\netcoreapp3.1\Google.Api.CommonProtos.dll
+C:\Users\Danijela Djuric\source\repos\BookstoreAPI\BookstoreAPI\bin\Debug\netcoreapp3.1\Google.Protobuf.dll

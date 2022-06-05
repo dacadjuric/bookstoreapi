@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vYq4MLRSrYdcMfNnlXLm3fuSun5twU9hIrlvs+pJtcnsMtKskfloTzfSAYAYEZkMPKC2+Fgt4dPvh6ODotoMRQ==",
+  "dgSpecHash": "f81Jr1U4dNV4UyKVRXK0yc4yaz+SKF0aAUXBwV5Gs7vYZvrAa28shl1Ir+q03eHDHK5hjm5FMcszs+zpv6IsGA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Danijela Djuric\\source\\repos\\BookstoreAPI\\Implementation\\Implementation.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Danijela Djuric\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Danijela Djuric\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
     "C:\\Users\\Danijela Djuric\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Danijela Djuric\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

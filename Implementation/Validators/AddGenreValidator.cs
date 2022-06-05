@@ -3,6 +3,7 @@ using DataAccess;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Implementation.Validators
@@ -13,7 +14,9 @@ namespace Implementation.Validators
         {
             RuleFor(x => x.GenreName)
             .NotEmpty()
-            .WithMessage("Genre name is required");
+            .WithMessage("Genre name is required")
+            .Must(name => !context.Genres.Any(g => g.GenreName == name))
+            .WithMessage("ganre with that name already exists."); ;
         }
     }
 }

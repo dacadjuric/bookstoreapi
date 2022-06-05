@@ -9,11 +9,4 @@ namespace Application.Email
     {
         void Send(SendEmailDTO dto);
     }
-
-    public class SendEmailDTO
-    {
-        public string SendTo { get; set; }
-        public string Subject { get; set; }
-        public string Email { get; set; }
-    }
 }

@@ -22,7 +22,7 @@ namespace BookstoreAPI.Controllers
             _executor = executor;
         }
 
-        // POST api/<RegisterController>
+        //POST api/<RegisterController>
         [HttpPost]
         public void Post([FromBody] RegistrationDTO dto, [FromServices] IRegistrationCommand command)
         {

@@ -6,7 +6,8 @@ using System.Text;
 
 namespace Application.Queries
 {
-    public interface IGetBookQuery : IQuery<BookSearch, PaginationResponse<BookDTO>>
+    public interface IGetBookQuery : IQuery<int, IEnumerable<BookDTO>>
     {
+
     }
 }

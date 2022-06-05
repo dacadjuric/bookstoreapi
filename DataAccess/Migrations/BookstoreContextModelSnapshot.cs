@@ -163,29 +163,11 @@ namespace DataAccess.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedAt")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("BookId", "AuthorId");
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("BookAuthor");
+                    b.ToTable("BookAuthors");
                 });
 
             modelBuilder.Entity("Domain.BookGenre", b =>
@@ -218,7 +200,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("BookGenre");
+                    b.ToTable("BookGenres");
                 });
 
             modelBuilder.Entity("Domain.Genre", b =>
@@ -351,6 +333,30 @@ namespace DataAccess.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("UseCaseAuthor");
+                });
+
+            modelBuilder.Entity("Domain.UseCaseLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Actor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Data")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UseCaseName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UseCaseLogs");
                 });
 
             modelBuilder.Entity("Domain.Book", b =>

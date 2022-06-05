@@ -68,5 +68,10 @@ namespace DataAccess
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<BookAuthor> BookAuthors { get; set; }
+        public DbSet<BookGenre> BookGenres { get; set; }
+        public DbSet<UseCaseLog> UseCaseLogs { get; set; }
+
+
     }
 }
